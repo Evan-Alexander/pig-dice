@@ -1,5 +1,6 @@
 //backend
 var currentScore;
+var gameScore = 0;
 
 var dieRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
@@ -16,11 +17,6 @@ function turn() { //
   return turnScore;
 }
 
-function totalScore() {
-  var endOfTurn = turn();
-
-}
-
 //User interface
 $(document).ready(function() {
   $("#roll1").click(function() {
@@ -32,14 +28,14 @@ $(document).ready(function() {
 
     console.log(currentScore);
 
-
     });
 
 
-
   $("#hold1").click(function() {
-    $("#total-score1").text(currentScore);
-    console.log(currentScore);
+    gameScore += currentScore;
+
+    $("#total-score1").text(gameScore);
+    console.log(gameScore);
 
       });
 });
