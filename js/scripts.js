@@ -1,23 +1,25 @@
 //backend
-
-
-
 var dieRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 };
 
-var currentTurn = function() {
-  var score = 0;
-  score = dieRoll();
-  if (score != 1) {
-    return score;
-  } else
-  score = 0; //otherwise resets to 0
+var arraySum = function(total, number) {
+  return total + number;
 }
 
+//for merging the two arrays
+//$.merge( [ 0, 1, 2 ], [ 2, 3, 4 ] )
 
-  //for (i = 1; i <= roll; i++)
+// testArray = [1,2,3,4,5];
+// testArray.push(5)
+// console.log(testArray.reduce(arraySum));
 
+var currentTurn = function(roll) {
+  var rolls = [];
+  for (i = 1; i <= dieRoll; i++);
+  console.log(dieRoll);
+  return dieRoll;
+}
 //var sum = tempScore.reduce(function(first, last) {
   //return first + last; }, 0);
 
@@ -27,7 +29,7 @@ $(document).ready(function() {
   $("#roll1").click(function() {
 
     var roll = parseInt(dieRoll());
-    var turnScore = roll+=roll;
+    = currentTurn();
 
     $("#roll-output1").text(roll);
     $("#turnScore").text(turnScore);
