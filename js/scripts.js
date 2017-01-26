@@ -1,38 +1,45 @@
 //backend
-
-
+var currentScore;
 
 var dieRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
-};
+}; //returns a number
+var turnScore = 0;
 
-var currentTurn = function() {
-  var score = 0;
-  score = dieRoll();
-  if (score != 1) {
-    return score;
-  } else
-  score = 0; //otherwise resets to 0
+function turn() { //
+  var dice = dieRoll();
+  if ( dice != 1 ) {
+    turnScore += dice;
+  } else {
+    turnScore = 0;
+  }
+  return turnScore;
 }
 
+function totalScore() {
+  var endOfTurn = turn();
 
-  //for (i = 1; i <= roll; i++)
-
-//var sum = tempScore.reduce(function(first, last) {
-  //return first + last; }, 0);
-
+}
 
 //User interface
 $(document).ready(function() {
   $("#roll1").click(function() {
 
-    var roll = parseInt(dieRoll());
-    var turnScore = roll+=roll;
+    //var roll = dieRoll();
+    currentScore = turn();
 
-    $("#roll-output1").text(roll);
-    $("#turnScore").text(turnScore);
-    console.log(turnScore);
+    $("#roll-output1").text(currentScore);
+
+    console.log(currentScore);
 
 
-  });
+    });
+
+
+
+  $("#hold1").click(function() {
+    $("#total-score1").text(currentScore);
+    console.log(currentScore);
+
+      });
 });
